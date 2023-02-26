@@ -22,6 +22,8 @@ public class Validator {
         LocalDate dateOfBirth = LocalDate.of(yearOfBirth, monthOfBirth, dayOfBirth);
         System.out.println("Enter passport number");
         String passportNumber = sc.nextLine();
+        System.out.println("Enter passport id");
+        String passportID=sc.nextLine();
         System.out.println("Enter day of issue");
         int dayOfIssue = Integer.parseInt(sc.nextLine());
         System.out.println("Enter month of issue");
@@ -33,8 +35,9 @@ public class Validator {
         System.out.println("Enter duration period of the passport");
         LocalDate dateOfExpire = dateOfIssue.plusYears(Integer.parseInt(sc.nextLine()));
         System.out.println(dateOfExpire);
-        BlrPassport pp = new BlrPassport(firstName, secondName, passportNumber, dateOfBirth,
-                "MC2673118", "3012399B023PB2", dateOfIssue, dateOfExpire);
-        System.out.println(pp.ifPassportValid(LocalDate.now(ZoneId.of("Europe/Minsk"))));
+        BlrPassport pp = new BlrPassport(firstName, secondName, gender, dateOfBirth,
+                passportNumber, passportID, dateOfIssue, dateOfExpire);
+        System.out.println("Is passport not overdue: "+pp.ifPassportValid(LocalDate.now(ZoneId.of("Europe/Minsk"))));
+        System.out.println(pp.toString());
     }
 }

@@ -28,24 +28,30 @@ public class BlrPassport {
         this.gender = gender;
         Pattern num = Pattern.compile("(AB|BM|HB|KH|MP|MC|KB|PP|SP|DP)\\d{7}");
         Matcher matcher = num.matcher(passportNumber);
-        System.out.println(matcher.find());
-        if (!matcher.find()) {
-            throw new IllegalArgumentException("Wrong data input");
+        boolean gg= matcher.find();
+        if (!gg) {
+            throw new IllegalArgumentException("Wrong data input(Passport number)");
         }
 
         Pattern id = Pattern.compile("\\d{7}(A|B|C|K|M|E|H)\\d{3}(PB|BA|BI)\\d");
         Matcher matcher1 = id.matcher(passportID);
-        if (!matcher1.find()) {
-            throw new IllegalArgumentException("Wrong data input");
+        boolean gg1=matcher1.find();
+        if (!gg1) {
+            throw new IllegalArgumentException("Wrong data input(Passport id number");
         }
 
         boolean ifDataValid = dateOfExpire.isAfter(dateOfIssue);
         if (!ifDataValid) {
-            throw new IllegalArgumentException("Wrong data input");
+            throw new IllegalArgumentException("Wrong data input(date of expire should be before date of issue");
         }
     }
 
     public boolean ifPassportValid(LocalDate now) {
         return dateOfExpire.isAfter(now);
     }
+public String toString(){
+    return "%s %s %s%s%n%s %s%n%s %s%n%s %s%n%s %s%n%s %s".formatted(firstName, secondName,"Gender:", gender,"Date of birth:", dateOfBirth,
+            "Passport issued:", dateOfIssue, "Passport will be expired", dateOfExpire, "Passport number:", passportNumber,
+            "Passport id:", passportID);
+}
 }
