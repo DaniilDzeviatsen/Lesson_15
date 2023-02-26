@@ -37,7 +37,7 @@ public class Validator {
         System.out.println(dateOfExpire);
         BlrPassport pp = new BlrPassport(firstName, secondName, gender, dateOfBirth,
                 passportNumber, passportID, dateOfIssue, dateOfExpire);
-        System.out.println("Is passport not overdue: "+pp.ifPassportValid(LocalDate.now(ZoneId.of("Europe/Minsk"))));
+        System.out.println("Is passport not overdue:  "+pp.ifPassportValid(LocalDate.now(ZoneId.of("Europe/Minsk"))));
         System.out.println(pp.toString());
     }
 }

@@ -42,7 +42,7 @@ public class BlrPassport {
 
         boolean ifDataValid = dateOfExpire.isAfter(dateOfIssue);
         if (!ifDataValid) {
-            throw new IllegalArgumentException("Wrong data input(date of expire should be before date of issue");
+            throw new IllegalArgumentException("Wrong data input (date of expire should be before date of issue");
         }
     }
 
