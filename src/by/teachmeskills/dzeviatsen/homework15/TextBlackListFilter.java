@@ -45,7 +45,7 @@ public class TextBlackListFilter {
             Matcher matcher = pattern.matcher(userText);
             if (matcher.find()) {
                 if (userText.contains((badWords[i]))) {
-                    userText = userText.replace(badWords[i], "####");
+                    userText = matcher.replaceAll("####");
                 }
             }
 
