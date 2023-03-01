@@ -9,7 +9,7 @@ public class TextBlackListFilter {
     private final Pattern[] pattern;
 
     public TextBlackListFilter(String badWordss) {
-        this.badWords = badWordss.split(", ");
+        this.badWords = badWordss.trim().split("\\s*,\\s*");
         this.pattern = new Pattern[badWords.length];
         for (int i = 0; i < badWords.length; i++) {
             pattern[i] = getPattern(badWords[i]);
