@@ -17,8 +17,8 @@ public class Validator {
                 String firstName = sc.nextLine();
                 System.out.println("Enter secondName");
                 String secondName = sc.nextLine();
-                System.out.println("Enter gender");
-                String gender = sc.nextLine();
+                System.out.println("Enter gender: Male or Female");
+                Gender gender = Gender.valueOf(sc.nextLine());
                 System.out.println("Enter day of birth");
                 int dayOfBirth = Integer.parseInt(sc.nextLine());
                 System.out.println("Enter month of birth");
