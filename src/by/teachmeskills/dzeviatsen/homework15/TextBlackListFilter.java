@@ -36,7 +36,7 @@ public class TextBlackListFilter {
         int count = 0;
         for (Pattern suitablePattern : pattern) {
             Matcher matcher = suitablePattern.matcher(userText);
-            if (matcher.find()) {
+            while(matcher.find()) {
                 count++;
             }
         }
